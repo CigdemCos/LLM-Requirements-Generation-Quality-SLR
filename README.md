@@ -7,11 +7,12 @@ The paper is a systematic literature review (SLR) of 30 primary studies publishe
 ## Contents
 
 ```
-├── Study_Index.xlsx   one row per primary study: Study ID and its reference number in the paper and in every other file
-├── SLR.xlsx           study selection, quality assessment, and general extracted data (3 sheets)
-├── RQ1.xlsx           quality characteristics, impacts, factors, and mapping to standards (6 sheets)
-├── RQ2.xlsx           requirements generation approaches (2 sheets)
-└── RQ3.xlsx           quality issue detection and assessment methods (2 sheets)
+├── Study_Index.xlsx       one row per primary study: Study ID and its reference number in the paper and in every other file
+├── Search_Results.xlsx    the 336 records retrieved from IEEE Xplore, with the screening decisions of both selection stages
+├── SLR.xlsx               study selection, quality assessment, and general extracted data (3 sheets)
+├── RQ1.xlsx               quality characteristics, impacts, factors, and mapping to standards (6 sheets)
+├── RQ2.xlsx               requirements generation approaches (2 sheets)
+└── RQ3.xlsx               quality issue detection and assessment methods (2 sheets)
 ```
 
 ## Reading order
@@ -19,17 +20,18 @@ The paper is a systematic literature review (SLR) of 30 primary studies publishe
 | Step | Where | What it contains |
 |---:|---|---|
 | 1 | `Study_Index.xlsx` | The 30 primary studies (S01–S30) and their reference numbers in the paper and in each spreadsheet. Start here to trace any study. |
-| 2 | `SLR.xlsx` → `Formal Literature` | The 42 candidate studies that remained after title/abstract screening and the ICORE2026 ranking filter, assessed against the inclusion criteria and the four quality assessment questions. |
-| 3 | `SLR.xlsx` → `ReqQua-LLM-dataExt` | General extracted data for the 30 primary studies. |
-| 4 | `RQ1.xlsx` → `RQ1_Findings` | Every reported impact on a quality characteristic, with its direction, explanation, and proposed solution (raw extraction). |
-| 5 | `RQ1.xlsx` → `Unified-Characteristics`, `RQ1 Results Summary` | How the reported characteristics were grouped into 24 unified characteristics, and the study and finding counts per characteristic. |
-| 6 | `RQ1.xlsx` → `Mapping-Characteristics`, `Unmapped StandardFramework Char` | Mapping of the unified characteristics to the QUS framework, ISO/IEC/IEEE 29148:2018, and IEEE Std 830-1993, and the reverse mapping. |
-| 7 | `RQ2.xlsx`, `RQ3.xlsx` | Extracted data for RQ2 and RQ3. |
+| 2 | `Search_Results.xlsx` | All 336 retrieved records with their title/abstract screening decision, ICORE2026 rank, and second-stage decision. |
+| 3 | `SLR.xlsx` → `Formal Literature` | The 42 candidate studies that remained after title/abstract screening and the ICORE2026 ranking filter, assessed against the inclusion criteria and the four quality assessment questions. |
+| 4 | `SLR.xlsx` → `ReqQua-LLM-dataExt` | General extracted data for the 30 primary studies. |
+| 5 | `RQ1.xlsx` → `RQ1_Findings` | Every reported impact on a quality characteristic, with its direction, explanation, and proposed solution (raw extraction). |
+| 6 | `RQ1.xlsx` → `Unified-Characteristics`, `RQ1 Results Summary` | How the reported characteristics were grouped into 24 unified characteristics, and the study and finding counts per characteristic. |
+| 7 | `RQ1.xlsx` → `Mapping-Characteristics`, `Unmapped StandardFramework Char` | Mapping of the unified characteristics to the QUS framework, ISO/IEC/IEEE 29148:2018, and IEEE Std 830-1993, and the reverse mapping. |
+| 8 | `RQ2.xlsx`, `RQ3.xlsx` | Extracted data for RQ2 and RQ3. |
 
 ## Study selection
 
 - **Search:** IEEE Xplore, June 16, 2026; publications from 2025–2026; 336 records retrieved.
-- **Stage 1:** title and abstract screening against the inclusion criteria, followed by retaining conference papers ranked B or higher in ICORE2026 → 42 candidates.
+- **Stage 1:** title and abstract screening against the inclusion criteria → 120 studies; venue rank filter applied to conference papers only, excluding those ranked below B in ICORE2026 → 42 candidates.
 - **Stage 2:** full-text reading against the inclusion criteria and quality assessment → 30 primary studies.
 - **Quality assessment:** four questions, each scored 0 (No), 1 (Partially), or 2 (Yes); studies scoring at least 4 out of 8 were retained.
 
@@ -50,6 +52,27 @@ Each spreadsheet numbers the studies in its own `References` sheet, so the same 
 | ID in SLR.xlsx | ID used in `SLR.xlsx` |
 | Ref. No. in RQ1/RQ2/RQ3.xlsx | Reference number in the `References` sheet of each RQ file (— if the study does not contribute to that RQ) |
 | RQ1, RQ2, RQ3 | Whether the study contributes to each RQ (21, 25, and 12 studies, respectively) |
+
+### Search_Results.xlsx
+
+One row per record retrieved from IEEE Xplore (336 rows), exported on June 16, 2026, with the IEEE Xplore metadata (title, authors, venue, year, abstract, DOI, keywords, etc.) and the following screening columns.
+
+| Column | Content |
+|---|---|
+| Source Type | Conference paper, journal article, magazine article, early access article, book chapter, or standard |
+| Related Research Question(s) | RQs to which the study contributes (included studies only) |
+| ICORE Rank | ICORE2026 rank of the conference (A*, A, B, C), `Not Listed` (conference not in the ranking), `National: Country` (national venue), `Not Applicable` (not a conference paper), or `Not Screened` (excluded at title/abstract screening, so the rank was not checked) |
+| In/Out (Title + Abstract + ICORE) | 1 if retained after stage 1 (42 studies), 0 otherwise |
+| In/Out (Second Evaluation) | 1 if retained after stage 2 (30 primary studies), 0 otherwise |
+
+Row colors summarize the decisions:
+
+| Color | Meaning | Records |
+|---|---|---:|
+| Red | Excluded at title/abstract screening | 216 |
+| Orange | Passed title/abstract screening, excluded by the venue rank filter | 78 |
+| Blue | Excluded at the second stage (full-text reading, inclusion criteria, quality assessment) | 12 |
+| Green | Included as primary study | 30 |
 
 ### SLR.xlsx
 
